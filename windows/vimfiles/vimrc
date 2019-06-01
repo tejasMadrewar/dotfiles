@@ -1,0 +1,104 @@
+"VIM configuration
+
+"Enable syntex highlighting
+syntax enable
+
+" Enable file specific beahvior like syntex highlighting and indentation
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set nocompatible
+
+call pathogen#infect()   "Activate pathogen plugin
+"call pathogen#runtime_append_all_bundle()
+call pathogen#helptags()
+
+let mapleader=','  " change defaule leader key \ to ,
+
+"autocmd vimenter * NERDTree  "Activate NREDTree
+
+" disable folds
+set nofoldenable
+
+"--Display
+set ttyfast
+set cursorline   " highlight cursor line
+set shortmess+=I " disable startup message
+set title   "update the title of your window or your terrminal
+set number  "Display line number
+"set relativenumber "Enable the relative number
+"set norelativenumber " Disable the relative number
+set ruler   "Display cursor position
+set wrap    "wrap lines when they are too long 
+set linebreak  "preserve words not break words when line breaks
+
+set scrolloff=10  "display at least 3 lines around you cursor
+                  "(for scrolling )
+
+set guioptions-=T  "Enable the toolbar
+set guioptions-=m "Display the menubar
+
+set wildmenu  " it enhances auto complete command mode
+set wildmode=longest,list" it enhances auto complete command mode
+
+set splitbelow  "split new tab below the old tab
+set splitright  "split new tab at right of the old tab
+
+
+"--Search
+set ignorecase        "Ignore case when searching
+set smartcase         "If there is an uppercase in your search term
+
+set incsearch         "Highlight search results when typing 
+set hlsearch         "Highlight search results
+
+"-- Beep
+set visualbell      "Prevent Vim from beeping
+set noerrorbells    "Prevent Vim from beeping
+"Backspace behaves as expected
+set backspace=indent,eol,start
+
+" Hide buffer (file) instead of abandoning when switching
+" to another buffer
+set hidden
+
+"--colour
+" Use the dark version of Scolarised
+"set background=dark
+"colorscheme solarized
+color  molokai
+
+" FONTS AND FONT SIZE
+set guifont=Consolas:h11
+"set antialias
+
+" cd to the directory containing the file in the buffer
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+" when typing jj in insert mode, go back to noraml mode
+inoremap jj <ESC>
+
+"Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+set backupdir=~\vimfiles\_backup\\    " where to put backup files.
+set directory=~\vimfiles\_temp\\     " where to put swap files.
+
+" spelling stuff
+map <F6> :setlocal spell! spelllang=en_us<CR>
+
+
+"for powerline plugin
+set laststatus=2 "always show the statusline
+"set encoding=utf-8 " Necessary to show Unicode glyphs
+
+nmap <leader>n :NERDTreeToggle<CR> " Toggle NERDTree when \n is press
